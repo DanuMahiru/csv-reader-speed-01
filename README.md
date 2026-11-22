@@ -43,6 +43,10 @@ One left-to-right pass, but no per-character work:
 - Speed on the practice set (median of 9 timed runs, `run()` time only,
   `--no-incremental-marking`, as the harness measures it):
   **~354 ms vs csv-reader 1.0.0's ~1,214 ms — about 3.4x faster.**
+  v2 (this commit) restructures the reader into one function with plain
+  locals and cuts unquoted bodies with `BODY.test()` + `slice` instead of
+  `BODY.exec()` — locally ~60% faster than v1 on the practice set and on
+  two fresh generator draws, same 6/6 byte-identical answers.
 
 ## License
 
